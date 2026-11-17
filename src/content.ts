@@ -3,7 +3,7 @@ export type Project = { slug: string; title: string; category: Category; summary
 
 export const profile = {
   name: 'Vibishan Anandhan', email: 'vibishan.anandhan.m@gmail.com', phone: '+91 90423 97500', location: 'Coimbatore, Tamil Nadu, India',
-  resumeUrl: '/resume/Vibishan-Anandhan-Resume.docx' as string | null,
+  resumeUrl: 'https://docs.google.com/document/d/13yoSASn7Qudk7aj-ep406_vAeZnYo802Imzbnxw--4E/edit?usp=sharing' as string | null,
   linkedin: 'https://www.linkedin.com/in/evil-dreams/', github: 'https://github.com/Evil-Dreams',
   headline: 'Building intelligent systems from model to deployment.',
   positioning: 'AI engineer and researcher building useful language-model systems, reliable integrations, and edge-AI prototypes.',

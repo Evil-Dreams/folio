@@ -1,35 +1,275 @@
 import type { Project } from '../content'
 
 const rasterArt: Record<string, { src: string; alt: string }> = {
-  'sentio-kairo': { src: '/images/sentio-kairo-glass.webp', alt: 'Transparent glass CNC machine and control console illuminated in blue' },
-  'rlhf-for-slm': { src: '/images/focus-alignment-loop.webp', alt: 'Interwoven glass loop representing model alignment' },
-  guider: { src: '/images/guider-glass-pathways.webp', alt: 'Layered translucent blue pathways representing education guidance' },
-  iblis: { src: '/images/iblis-orb.webp', alt: 'Blue glass orb with orbiting light paths for a personal assistant' },
-  'multimodal-reasoning-engine': { src: '/images/focus-slm-cubes.webp', alt: 'Cluster of translucent blue cubes representing connected reasoning paths' },
-  'cnc-digital-twin': { src: '/images/sentio-kairo-glass.webp', alt: 'Transparent glass CNC machine with a blue-lit spindle and control console' },
-  'b2b-enterprise-intelligence-engine': { src: '/images/enterprise-intelligence.webp', alt: 'Business information streams passing through normalization into an entity network' },
-  'education-paper-recommender': { src: '/images/retrieval-network.webp', alt: 'Research documents connected through semantic retrieval paths' },
+  'sentio-kairo': {
+    src: '/images/sentio-kairo-glass.webp',
+    alt: 'Transparent glass CNC machine and control console illuminated in blue for SENTIO-KAIRO industrial diagnostics',
+  },
+  'rlhf-for-slm': {
+    src: '/images/focus-alignment-loop.webp',
+    alt: 'Interwoven glass loop representing preference optimization and language model alignment',
+  },
+  guider: {
+    src: '/images/guider-glass-pathways.webp',
+    alt: 'Layered translucent blue pathways representing student career and education guidance',
+  },
+  iblis: {
+    src: '/images/iblis-orb.webp',
+    alt: 'Blue glass orb with orbiting light paths representing local AI assistant workflows',
+  },
+  'multimodal-reasoning-engine': {
+    src: '/images/focus-slm-cubes.webp',
+    alt: 'Cluster of translucent blue cubes representing multi-step reasoning and candidate pruning',
+  },
+  'cnc-digital-twin': {
+    src: '/images/cnc-digital-twin.webp',
+    alt: '3D CNC machine simulation showing toolpath kinematics, telemetry feeds, and fault scenarios',
+  },
+  'b2b-enterprise-intelligence-engine': {
+    src: '/images/enterprise-intelligence.webp',
+    alt: 'Business information streams passing through normalization into an entity network',
+  },
+  'education-paper-recommender': {
+    src: '/images/retrieval-network.webp',
+    alt: 'Research documents connected through semantic retrieval and ranking paths',
+  },
 }
 
 function VectorArtwork({ slug }: { slug: string }) {
-  if (slug === 'guider') return <svg viewBox="0 0 620 300" aria-hidden="true"><path className="art-line" d="M32 222C130 220 100 98 216 108s91 114 198 57 121-99 174-99"/><path className="art-line art-line-soft" d="M46 79c93 4 109 98 191 91s118-80 207-45 106 82 159 67"/><g className="art-points"><circle cx="44" cy="222" r="7"/><circle cx="216" cy="108" r="7"/><circle cx="414" cy="165" r="8"/><circle cx="588" cy="66" r="8"/><circle cx="46" cy="79" r="5"/></g><g className="art-glyph"><path d="M198 105l18-19 18 19v22h-36z"/><path d="M407 157h18v17h-18zm8-8v-9m-9 9h19"/><path d="M578 59h20v14h-20zm4-6h12v6"/></g><text x="29" y="258">PROFILE</text><text x="186" y="75">CONTEXT</text><text x="392" y="210">RETRIEVAL</text><text x="548" y="104">GUIDANCE</text></svg>
-  if (slug === 'multimodal-reasoning-engine') return <svg viewBox="0 0 620 300" aria-hidden="true"><path className="art-line" d="M70 150h116M186 150L294 74m-108 76 108 0m-108 0 108 76m0-152h116m-116 76h116m-116 76h116m0-152 112 76m-112 0h112m-112 76 112-76"/><g className="art-points"><circle cx="70" cy="150" r="10"/><circle cx="186" cy="150" r="8"/><circle cx="294" cy="74" r="8"/><circle cx="294" cy="150" r="10"/><circle cx="294" cy="226" r="8"/><circle cx="410" cy="74" r="7"/><circle cx="410" cy="150" r="7"/><circle cx="410" cy="226" r="7"/><circle cx="522" cy="150" r="12"/></g><text x="40" y="184">QUESTION</text><text x="158" y="126">EXPAND</text><text x="265" y="48">SCORE</text><text x="255" y="182">AGGREGATE</text><text x="260" y="256">PRUNE</text><text x="485" y="183">OUTPUT</text></svg>
-  if (slug === 'b2b-enterprise-intelligence-engine') return <svg viewBox="0 0 620 300" aria-hidden="true"><path className="art-line" d="M91 70l155 80m-155 80 155-80m155-80-155 80m155 80-155-80m0 0 133-100m-133 100 133 100m0-200 104 100m-104 100 104-100"/><g className="art-points"><circle cx="91" cy="70" r="7"/><circle cx="91" cy="230" r="7"/><circle cx="246" cy="150" r="15"/><circle cx="401" cy="70" r="7"/><circle cx="401" cy="230" r="7"/><circle cx="379" cy="50" r="6"/><circle cx="379" cy="250" r="6"/><circle cx="505" cy="150" r="11"/></g><g className="art-glyph"><path d="M78 60h26v20H78zM78 220h26v20H78zM490 137h30v26h-30z"/><path d="M395 64h12m-12 8h12m-12 8h12M395 224h12m-12 8h12m-12 8h12"/></g><text x="55" y="44">SOURCES</text><text x="212" y="190">NORMALIZE</text><text x="472" y="190">ENTITY GRAPH</text></svg>
-  if (slug === 'ai-model-router') return <svg viewBox="0 0 620 300" aria-hidden="true"><circle className="art-orbit" cx="310" cy="150" r="105"/><circle className="art-orbit art-orbit-inner" cx="310" cy="150" r="60"/><path className="art-line" d="M310 150L104 69m206 81 206-81m-206 81 0 101"/><g className="art-points"><circle cx="310" cy="150" r="15"/><circle cx="104" cy="69" r="9"/><circle cx="516" cy="69" r="9"/><circle cx="310" cy="251" r="9"/></g><text x="260" y="155">ROUTE</text><text x="61" y="48">MODEL PATH A</text><text x="445" y="48">MODEL PATH B</text><text x="270" y="283">SERVICE PATH</text></svg>
-  if (slug === 'cnc-digital-twin') return <svg viewBox="0 0 620 300" aria-hidden="true"><path className="art-line art-line-soft" d="M99 227h420M115 206V74h390v132M115 74l40-25h390v132l-40 25"/><path className="art-line" d="M225 74v57m0 0-20 25h78l-20-25v-57m-39 57h39m-63 70 58-31 72 0 59 31m-155 0v19m158-19v19"/><g className="art-points"><circle cx="225" cy="131" r="6"/><circle cx="244" cy="156" r="7"/><circle cx="302" cy="188" r="5"/><circle cx="450" cy="104" r="6"/><circle cx="151" cy="230" r="5"/></g><path className="art-crosshair" d="M420 88h54m-27-27v54M129 184h39m-20-20v40"/><text x="192" y="48">SPINDLE / Z</text><text x="379" y="256">MOTION · KINEMATICS · FAULT SCENARIOS</text></svg>
-  if (slug === 'neonatal-jaundice-monitoring') return <svg viewBox="0 0 620 300" aria-hidden="true"><rect className="art-frame" x="84" y="42" width="194" height="216" rx="4"/><path className="art-grid" d="M123 42v216m39-216v216m39-216v216m38-216v216M84 85h194m-194 43h194m-194 43h194m-194 43h194"/><circle className="art-orbit" cx="405" cy="150" r="79"/><circle className="art-orbit art-orbit-inner" cx="405" cy="150" r="50"/><path className="art-line" d="M278 150h48m0 0 28-28m-28 28 28 28"/><g className="art-points"><circle cx="364" cy="122" r="7"/><circle cx="364" cy="178" r="7"/><circle cx="405" cy="150" r="12"/></g><text x="92" y="28">IMAGE PREPROCESSING</text><text x="371" y="265">ROI / COLOUR NORMALIZATION</text></svg>
-  if (slug === 'forme') return <svg viewBox="0 0 620 300" aria-hidden="true"><path className="art-sheet" d="M107 57h143l42 42v147H107zM250 57v44h42"/><path className="art-sheet art-sheet-back" d="M128 39h143l42 42v147"/><path className="art-line" d="M145 126h111m-111 25h88m-88 25h107m34-28 56 0 42-38m-98 38 54 0 41 39m-41-39h121"/><g className="art-points"><circle cx="414" cy="112" r="7"/><circle cx="414" cy="189" r="7"/><circle cx="535" cy="150" r="10"/></g><text x="115" y="274">DOCUMENT</text><text x="454" y="177">STRUCTURED FIELD</text></svg>
-  if (slug === 'education-paper-recommender') return <svg viewBox="0 0 620 300" aria-hidden="true"><path className="art-line" d="M88 85h91m-91 66h91m-91 66h91m0-132 104 66m-104 0 104 0m-104 66 104-66m0 0h86m0 0 111-63m-111 63 111 59"/><g className="art-glyph"><path d="M73 71h30v30H73zM73 137h30v30H73zM73 203h30v30H73z"/><path d="M278 135h22v30h-22zm112-63h29v35h-29zm0 120h29v35h-29z"/></g><g className="art-points"><circle cx="283" cy="150" r="8"/><circle cx="460" cy="89" r="9"/><circle cx="460" cy="209" r="7"/></g><text x="62" y="267">PAPERS</text><text x="245" y="196">SIMILARITY</text><text x="428" y="151">RANK</text></svg>
-  if (slug === 'lung-cancer-prediction') return <svg viewBox="0 0 620 300" aria-hidden="true"><path className="art-line" d="M85 58v180h448M130 194l80-65 72 24 86-83 66 43 64-67"/><path className="art-line art-line-soft" d="M130 216l80-49 72 10 86-58 66 19 64-50"/><g className="art-points"><circle cx="130" cy="194" r="7"/><circle cx="210" cy="129" r="7"/><circle cx="282" cy="153" r="7"/><circle cx="368" cy="70" r="7"/><circle cx="434" cy="113" r="7"/><circle cx="498" cy="46" r="7"/></g><text x="87" y="33">FEATURES</text><text x="425" y="267">EDUCATIONAL ML PROTOTYPE</text></svg>
-  if (slug === 'facial-recognition-attendance') return <svg viewBox="0 0 620 300" aria-hidden="true"><circle className="art-orbit" cx="204" cy="144" r="96"/><circle className="art-orbit art-orbit-inner" cx="204" cy="144" r="58"/><path className="art-line" d="M302 144h118m0 0 49-48m-49 48 49 48"/><path className="art-glyph" d="M184 119q20-19 40 0m-36 26q16 17 32 0m-17-15h1"/><g className="art-points"><circle cx="204" cy="144" r="7"/><circle cx="420" cy="144" r="8"/><circle cx="469" cy="96" r="7"/><circle cx="469" cy="192" r="7"/></g><text x="156" y="267">VISION WORKFLOW</text><text x="433" y="225">SHEETS API</text></svg>
-  return <svg viewBox="0 0 620 300" aria-hidden="true"><path className="art-line" d="M84 150h115m0 0 95-86m-95 86 95 0m-95 0 95 86m0-172 106 86m-106 0h106m-106 86 106-86m0-86 121 86m-121 0h121m-121 86 121-86"/><g className="art-points"><circle cx="84" cy="150" r="8"/><circle cx="199" cy="150" r="8"/><circle cx="294" cy="64" r="7"/><circle cx="294" cy="150" r="11"/><circle cx="294" cy="236" r="7"/><circle cx="400" cy="64" r="7"/><circle cx="400" cy="150" r="7"/><circle cx="400" cy="236" r="7"/><circle cx="521" cy="150" r="10"/></g><text x="60" y="184">INPUT</text><text x="260" y="185">LOCAL MODEL</text><text x="490" y="184">TOOLS</text></svg>
+  if (slug === 'guider') {
+    return (
+      <svg viewBox="0 0 620 300" aria-hidden="true">
+        <path className="art-line" d="M32 222C130 220 100 98 216 108s91 114 198 57 121-99 174-99" />
+        <path className="art-line art-line-soft" d="M46 79c93 4 109 98 191 91s118-80 207-45 106 82 159 67" />
+        <g className="art-points">
+          <circle cx="44" cy="222" r="7" />
+          <circle cx="216" cy="108" r="7" />
+          <circle cx="414" cy="165" r="8" />
+          <circle cx="588" cy="66" r="8" />
+          <circle cx="46" cy="79" r="5" />
+        </g>
+        <g className="art-glyph">
+          <path d="M198 105l18-19 18 19v22h-36z" />
+          <path d="M407 157h18v17h-18zm8-8v-9m-9 9h19" />
+          <path d="M578 59h20v14h-20zm4-6h12v6" />
+        </g>
+        <text x="29" y="258">PROFILE</text>
+        <text x="186" y="75">CONTEXT</text>
+        <text x="392" y="210">RETRIEVAL</text>
+        <text x="548" y="104">GUIDANCE</text>
+      </svg>
+    )
+  }
+  if (slug === 'multimodal-reasoning-engine') {
+    return (
+      <svg viewBox="0 0 620 300" aria-hidden="true">
+        <path className="art-line" d="M70 150h116M186 150L294 74m-108 76 108 0m-108 0 108 76m0-152h116m-116 76h116m-116 76h116m0-152 112 76m-112 0h112m-112 76 112-76" />
+        <g className="art-points">
+          <circle cx="70" cy="150" r="10" />
+          <circle cx="186" cy="150" r="8" />
+          <circle cx="294" cy="74" r="8" />
+          <circle cx="294" cy="150" r="10" />
+          <circle cx="294" cy="226" r="8" />
+          <circle cx="410" cy="74" r="7" />
+          <circle cx="410" cy="150" r="7" />
+          <circle cx="410" cy="226" r="7" />
+          <circle cx="522" cy="150" r="12" />
+        </g>
+        <text x="40" y="184">QUESTION</text>
+        <text x="158" y="126">EXPAND</text>
+        <text x="265" y="48">SCORE</text>
+        <text x="255" y="182">AGGREGATE</text>
+        <text x="260" y="256">PRUNE</text>
+        <text x="485" y="183">OUTPUT</text>
+      </svg>
+    )
+  }
+  if (slug === 'b2b-enterprise-intelligence-engine') {
+    return (
+      <svg viewBox="0 0 620 300" aria-hidden="true">
+        <path className="art-line" d="M91 70l155 80m-155 80 155-80m155-80-155 80m155 80-155-80m0 0 133-100m-133 100 133 100m0-200 104 100m-104 100 104-100" />
+        <g className="art-points">
+          <circle cx="91" cy="70" r="7" />
+          <circle cx="91" cy="230" r="7" />
+          <circle cx="246" cy="150" r="15" />
+          <circle cx="401" cy="70" r="7" />
+          <circle cx="401" cy="230" r="7" />
+          <circle cx="379" cy="50" r="6" />
+          <circle cx="379" cy="250" r="6" />
+          <circle cx="505" cy="150" r="11" />
+        </g>
+        <g className="art-glyph">
+          <path d="M78 60h26v20H78zM78 220h26v20H78zM490 137h30v26h-30z" />
+          <path d="M395 64h12m-12 8h12m-12 8h12M395 224h12m-12 8h12m-12 8h12" />
+        </g>
+        <text x="55" y="44">SOURCES</text>
+        <text x="212" y="190">NORMALIZE</text>
+        <text x="472" y="190">ENTITY GRAPH</text>
+      </svg>
+    )
+  }
+  if (slug === 'ai-model-router') {
+    return (
+      <svg viewBox="0 0 620 300" aria-hidden="true">
+        <circle className="art-orbit" cx="310" cy="150" r="105" />
+        <circle className="art-orbit art-orbit-inner" cx="310" cy="150" r="60" />
+        <path className="art-line" d="M310 150L104 69m206 81 206-81m-206 81 0 101" />
+        <g className="art-points">
+          <circle cx="310" cy="150" r="15" />
+          <circle cx="104" cy="69" r="9" />
+          <circle cx="516" cy="69" r="9" />
+          <circle cx="310" cy="251" r="9" />
+        </g>
+        <text x="260" y="155">ROUTE</text>
+        <text x="61" y="48">MODEL PATH A</text>
+        <text x="445" y="48">MODEL PATH B</text>
+        <text x="270" y="283">SERVICE PATH</text>
+      </svg>
+    )
+  }
+  if (slug === 'cnc-digital-twin') {
+    return (
+      <svg viewBox="0 0 620 300" aria-hidden="true">
+        <path className="art-line art-line-soft" d="M99 227h420M115 206V74h390v132M115 74l40-25h390v132l-40 25" />
+        <path className="art-line" d="M225 74v57m0 0-20 25h78l-20-25v-57m-39 57h39m-63 70 58-31 72 0 59 31m-155 0v19m158-19v19" />
+        <g className="art-points">
+          <circle cx="225" cy="131" r="6" />
+          <circle cx="244" cy="156" r="7" />
+          <circle cx="302" cy="188" r="5" />
+          <circle cx="450" cy="104" r="6" />
+          <circle cx="151" cy="230" r="5" />
+        </g>
+        <path className="art-crosshair" d="M420 88h54m-27-27v54M129 184h39m-20-20v40" />
+        <text x="192" y="48">SPINDLE / Z</text>
+        <text x="379" y="256">MOTION · KINEMATICS · FAULT SCENARIOS</text>
+      </svg>
+    )
+  }
+  if (slug === 'neonatal-jaundice-monitoring') {
+    return (
+      <svg viewBox="0 0 620 300" aria-hidden="true">
+        <rect className="art-frame" x="84" y="42" width="194" height="216" rx="4" />
+        <path className="art-grid" d="M123 42v216m39-216v216m39-216v216m38-216v216M84 85h194m-194 43h194m-194 43h194m-194 43h194" />
+        <circle className="art-orbit" cx="405" cy="150" r="79" />
+        <circle className="art-orbit art-orbit-inner" cx="405" cy="150" r="50" />
+        <path className="art-line" d="M278 150h48m0 0 28-28m-28 28 28 28" />
+        <g className="art-points">
+          <circle cx="364" cy="122" r="7" />
+          <circle cx="364" cy="178" r="7" />
+          <circle cx="405" cy="150" r="12" />
+        </g>
+        <text x="92" y="28">IMAGE PREPROCESSING</text>
+        <text x="371" y="265">ROI / COLOUR NORMALIZATION</text>
+      </svg>
+    )
+  }
+  if (slug === 'forme') {
+    return (
+      <svg viewBox="0 0 620 300" aria-hidden="true">
+        <path className="art-sheet" d="M107 57h143l42 42v147H107zM250 57v44h42" />
+        <path className="art-sheet art-sheet-back" d="M128 39h143l42 42v147" />
+        <path className="art-line" d="M145 126h111m-111 25h88m-88 25h107m34-28 56 0 42-38m-98 38 54 0 41 39m-41-39h121" />
+        <g className="art-points">
+          <circle cx="414" cy="112" r="7" />
+          <circle cx="414" cy="189" r="7" />
+          <circle cx="535" cy="150" r="10" />
+        </g>
+        <text x="115" y="274">DOCUMENT</text>
+        <text x="454" y="177">STRUCTURED FIELD</text>
+      </svg>
+    )
+  }
+  if (slug === 'education-paper-recommender') {
+    return (
+      <svg viewBox="0 0 620 300" aria-hidden="true">
+        <path className="art-line" d="M88 85h91m-91 66h91m-91 66h91m0-132 104 66m-104 0 104 0m-104 66 104-66m0 0h86m0 0 111-63m-111 63 111 59" />
+        <g className="art-glyph">
+          <path d="M73 71h30v30H73zM73 137h30v30H73zM73 203h30v30H73z" />
+          <path d="M278 135h22v30h-22zm112-63h29v35h-29zm0 120h29v35h-29z" />
+        </g>
+        <g className="art-points">
+          <circle cx="283" cy="150" r="8" />
+          <circle cx="460" cy="89" r="9" />
+          <circle cx="460" cy="209" r="7" />
+        </g>
+        <text x="62" y="267">PAPERS</text>
+        <text x="245" y="196">SIMILARITY</text>
+        <text x="428" y="151">RANK</text>
+      </svg>
+    )
+  }
+  if (slug === 'lung-cancer-prediction') {
+    return (
+      <svg viewBox="0 0 620 300" aria-hidden="true">
+        <path className="art-line" d="M85 58v180h448M130 194l80-65 72 24 86-83 66 43 64-67" />
+        <path className="art-line art-line-soft" d="M130 216l80-49 72 10 86-58 66 19 64-50" />
+        <g className="art-points">
+          <circle cx="130" cy="194" r="7" />
+          <circle cx="210" cy="129" r="7" />
+          <circle cx="282" cy="153" r="7" />
+          <circle cx="368" cy="70" r="7" />
+          <circle cx="434" cy="113" r="7" />
+          <circle cx="498" cy="46" r="7" />
+        </g>
+        <text x="87" y="33">FEATURES</text>
+        <text x="425" y="267">EDUCATIONAL ML PROTOTYPE</text>
+      </svg>
+    )
+  }
+  if (slug === 'facial-recognition-attendance') {
+    return (
+      <svg viewBox="0 0 620 300" aria-hidden="true">
+        <circle className="art-orbit" cx="204" cy="144" r="96" />
+        <circle className="art-orbit art-orbit-inner" cx="204" cy="144" r="58" />
+        <path className="art-line" d="M302 144h118m0 0 49-48m-49 48 49 48" />
+        <path className="art-glyph" d="M184 119q20-19 40 0m-36 26q16 17 32 0m-17-15h1" />
+        <g className="art-points">
+          <circle cx="204" cy="144" r="7" />
+          <circle cx="420" cy="144" r="8" />
+          <circle cx="469" cy="96" r="7" />
+          <circle cx="469" cy="192" r="7" />
+        </g>
+        <text x="156" y="267">VISION WORKFLOW</text>
+        <text x="433" y="225">SHEETS API</text>
+      </svg>
+    )
+  }
+  return (
+    <svg viewBox="0 0 620 300" aria-hidden="true">
+      <path className="art-line" d="M84 150h115m0 0 95-86m-95 86 95 0m-95 0 95 86m0-172 106 86m-106 0h106m-106 86 106-86m0-86 121 86m-121 0h121m-121 86 121-86" />
+      <g className="art-points">
+        <circle cx="84" cy="150" r="8" />
+        <circle cx="199" cy="150" r="8" />
+        <circle cx="294" cy="64" r="7" />
+        <circle cx="294" cy="150" r="11" />
+        <circle cx="294" cy="236" r="7" />
+        <circle cx="400" cy="64" r="7" />
+        <circle cx="400" cy="150" r="7" />
+        <circle cx="400" cy="236" r="7" />
+        <circle cx="521" cy="150" r="10" />
+      </g>
+      <text x="60" y="184">INPUT</text>
+      <text x="260" y="185">LOCAL MODEL</text>
+      <text x="490" y="184">TOOLS</text>
+    </svg>
+  )
 }
 
 export function ProjectArtwork({ project, size = 'card' }: { project: Project; size?: 'card' | 'case' }) {
   const image = rasterArt[project.slug]
-  return <figure className={`project-art project-art-${size} art-${project.slug}`} aria-label={`${project.title} visual`}>
-    {image ? <img src={image.src} alt={image.alt} loading={size === 'card' ? 'lazy' : 'eager'} decoding="async" /> : <VectorArtwork slug={project.slug} />}
-    <span className="art-grid-overlay" aria-hidden="true" />
-    <figcaption>{project.category} <span>/{project.slug.toUpperCase().replaceAll('-', ' ')}</span></figcaption>
-  </figure>
+  return (
+    <figure className={`project-art project-art-${size} art-${project.slug}`} aria-label={`${project.title} visual`}>
+      {image ? (
+        <img
+          src={image.src}
+          alt={image.alt}
+          loading={size === 'card' ? 'lazy' : 'eager'}
+          decoding="async"
+        />
+      ) : (
+        <VectorArtwork slug={project.slug} />
+      )}
+      <figcaption>{project.category} <span>/{project.slug.toUpperCase().replaceAll('-', ' ')}</span></figcaption>
+    </figure>
+  )
 }

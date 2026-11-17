@@ -3,6 +3,7 @@ import userEvent from '@testing-library/user-event'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { MemoryRouter } from 'react-router-dom'
 import App from './App'
+import { profile, projects } from './content'
 
 beforeEach(() => vi.spyOn(window, 'scrollTo').mockImplementation(() => {}))
 afterEach(() => { cleanup(); vi.restoreAllMocks() })
@@ -19,7 +20,26 @@ describe('reference portfolio experience', () => {
     expect(screen.getByText('13')).toBeInTheDocument()
     expect(screen.getByText('3')).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: /my research & engineering focus/i })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: /view resume/i })).toHaveAttribute('href', '/resume/Vibishan-Anandhan-Resume.docx')
+    expect(screen.getByRole('link', { name: /view resume/i })).toHaveAttribute('href', profile.resumeUrl!)
+  })
+
+  it('renders research focus section with all four distinct cards and visuals', () => {
+    renderAt()
+    expect(screen.getByText('Small Language Models (SLM)')).toBeInTheDocument()
+    expect(screen.getByText('RLHF & Alignment')).toBeInTheDocument()
+    expect(screen.getByText('Retrieval & Knowledge Systems')).toBeInTheDocument()
+    expect(screen.getByText('Edge & Industrial AI')).toBeInTheDocument()
+    const focusCards = document.querySelectorAll('.focus-card')
+    expect(focusCards).toHaveLength(4)
+    expect(document.querySelector('.focus-visual-slm img')).toHaveAttribute('src', '/images/focus-slm-cubes.webp')
+    expect(document.querySelector('.focus-visual-industrial img')).toHaveAttribute('src', '/images/focus-edge-chip.webp')
+  })
+
+  it('correctly maps CNC Digital Twin to its dedicated artwork, not Sentio Kairo', () => {
+    renderAt('/work/cnc-digital-twin')
+    const img = document.querySelector('.case-hero img')
+    expect(img).toHaveAttribute('src', '/images/cnc-digital-twin.webp')
+    expect(img).not.toHaveAttribute('src', '/images/sentio-kairo-glass.webp')
   })
 
   it('navigates to Projects and filters the project cards', async () => {
@@ -51,6 +71,14 @@ describe('reference portfolio experience', () => {
     renderAt(path)
     expect(document.querySelector('#main h1')?.textContent).toContain(heading)
   })
+
+  it.each(projects.map(p => [`/work/${p.slug}`, p.title]))(
+    'loads case study route %s and displays %s',
+    (path, title) => {
+      renderAt(path)
+      expect(document.querySelector('#main h1')?.textContent).toContain(title)
+    }
+  )
 
   it('expands actual role details on the Experience page', async () => {
     const user = userEvent.setup()
